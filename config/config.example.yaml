@@ -1,0 +1,72 @@
+# 有道云笔记迁移配置示例
+# 复制此文件为 config.yaml 并根据需要修改
+
+# 源目录和目标目录
+paths:
+  source: ./youdaonote-export
+  target: ./obsidian-vault
+  log: ./migration.log
+
+# 目录映射
+# 格式: "有道云目录": "Obsidian目录"
+directory_mapping:
+  # 直接映射
+  "1CPLANE": "4 career/CPLANE"
+  "2工作": "6 工作"
+  "3提升": "5 职业技能"
+  "4理财投资": "2 投资"
+  "1存档": "文章/文摘/存档"
+
+  # 资源目录细分
+  "我的资源/微信收藏": "文章/文摘/微信收藏"
+  "我的资源/系统收藏": "文章/文摘/系统收藏"
+  "我的资源/收藏笔记": "文章/文摘"
+
+  # 默认分类（未匹配的文件）
+  "_default": "Inbox"
+
+# 关键词映射（用于智能分类）
+# 格式: ["关键词1", "关键词2"]: "目标目录"
+keyword_mapping:
+  # AI 相关
+  - keywords: ["AI", "人工智能", "机器学习", "深度学习", "GPT", "Claude", "LLM"]
+    target: "1 AI"
+
+  # 投资相关
+  - keywords: ["股票", "基金", "理财", "投资", "财经", "金融"]
+    target: "2 投资"
+
+  # 职业技能
+  - keywords: ["Python", "Java", "JavaScript", "Go", "Git", "Linux", "Docker"]
+    target: "5 职业技能"
+
+  # 工作
+  - keywords: ["工作", "项目", "会议", "报告", "复盘"]
+    target: "6 工作"
+
+  # 生活
+  - keywords: ["生活", "美食", "旅游", "健康", "运动"]
+    target: "3 生活"
+
+# 排除模式
+exclude_patterns:
+  - "images/"
+  - "attachments/"
+  - ".DS_Store"
+  - "*.lock"
+  - "HUB_DIRECTORY"
+
+# 图片处理
+images:
+  extensions: [".jpeg", ".jpg", ".png", ".gif", ".webp", ".bmp", ".svg"]
+  target_dir: "images"
+
+# 短文件阈值（行数）
+short_file_threshold: 10
+
+# 标签配置
+tags:
+  default: ["有道云导入"]
+  converted: "note转换"  # .note 转换的文件
+  review: "待审核"       # 短文件标记
+  source: "有道云笔记"
