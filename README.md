@@ -46,8 +46,29 @@ DIRECTORY_MAPPING = {
 
 ### 4. 执行迁移
 
+#### 使用 Make（推荐）
+
 ```bash
+# 查看所有命令
+make help
+
 # 预览模式（推荐先执行）
+make run-dry SOURCE=/path/to/youdao-export TARGET=/path/to/obsidian-vault
+
+# 正式迁移
+make run SOURCE=/path/to/youdao-export TARGET=/path/to/obsidian-vault
+
+# 快速迁移（跳过重复检测）
+make quick SOURCE=/path/to/youdao-export TARGET=/path/to/obsidian-vault
+
+# 查看统计信息
+make stats SOURCE=/path/to/youdao-export
+```
+
+#### 使用 Python 直接运行
+
+```bash
+# 预览模式
 python3 scripts/migrate.py \
     --source /path/to/youdao-export \
     --target /path/to/obsidian-vault \
@@ -58,6 +79,22 @@ python3 scripts/migrate.py \
     --source /path/to/youdao-export \
     --target /path/to/obsidian-vault
 ```
+
+## Make 命令速查
+
+| 命令 | 说明 |
+|------|------|
+| `make help` | 显示帮助信息 |
+| `make run` | 执行迁移 |
+| `make run-dry` | 预览模式（不修改文件） |
+| `make preview` | `run-dry` 的别名 |
+| `make quick` | 快速迁移（跳过重复检测） |
+| `make stats` | 显示源目录统计 |
+| `make test` | 运行测试 |
+| `make format` | 格式化代码 |
+| `make lint` | 代码检查 |
+| `make check-all` | 运行所有检查 |
+| `make clean` | 清理临时文件 |
 
 ## 目录映射示例
 
