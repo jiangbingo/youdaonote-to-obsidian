@@ -183,6 +183,7 @@ source: 有道云笔记
 youdaonote-to-obsidian/
 ├── README.md
 ├── LICENSE
+├── Makefile              # 命令简化
 ├── scripts/
 │   ├── migrate.py        # 主迁移脚本
 │   ├── config.py         # 配置文件
@@ -194,7 +195,8 @@ youdaonote-to-obsidian/
 ├── config/
 │   └── config.example.yaml
 ├── docs/
-│   └── MIGRATION_GUIDE.md
+│   ├── MIGRATION_GUIDE.md   # 迁移详细指南
+│   └── RELATED_TOOLS.md     # 其他笔记迁移方案
 └── tests/
     └── test_converter.py
 ```
@@ -221,4 +223,19 @@ MIT License
 ## 相关项目
 
 - [Obsidian](https://obsidian.md/) - 知识管理工具
+- [Obsidian Importer](https://github.com/obsidianmd/obsidian-importer) - 官方导入插件（支持 OneNote、Evernote、Notion 等）
 - [youdaonote-pull](https://github.com/DeppWang/youdaonote-pull) - 有道云笔记导出工具
+
+## 其他笔记迁移方案
+
+如果你的笔记来源不是有道云，可以参考：
+
+| 来源 | 推荐方案 |
+|------|----------|
+| **有道云笔记** | 本项目 |
+| **OneNote** | [Obsidian Importer 插件](docs/RELATED_TOOLS.md#onenote--obsidian) |
+| **Evernote** | Obsidian Importer 插件 |
+| **Notion** | Obsidian Importer 插件 |
+| **其他** | [查看完整指南](docs/RELATED_TOOLS.md) |
+
+详见 [docs/RELATED_TOOLS.md](docs/RELATED_TOOLS.md)
